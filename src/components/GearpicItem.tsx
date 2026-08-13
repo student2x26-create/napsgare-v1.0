@@ -6,7 +6,7 @@ export default function GearpicItem({ item }: { item: Gearpic }) {
     <div className="widget-gearpics__item" data-id={item.id}>
       <figure>
         <a href={href}>
-          <img src={item.thumb} alt={item.title} />
+          <img src={item.thumb} alt={item.title} loading="lazy" />
         </a>
       </figure>
       <div className="product-details">

@@ -13,7 +13,7 @@ import NavInteractions from '@/components/NavInteractions'
 import ScrollToTop from '@/components/ScrollToTop'
 import JsonLd from '@/components/JsonLd'
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/site'
-import { organizationJsonLd, websiteJsonLd } from '@/lib/jsonld'
+import { organizationJsonLd, websiteJsonLd, localBusinessJsonLd } from '@/lib/jsonld'
 import Providers from '@/components/Providers'
 import WhatsAppChatLink from '@/components/WhatsAppChatLink'
 
@@ -88,7 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Site-wide schema.org JSON-LD — Organization (knowledge panel) and
             WebSite (sitelinks search box). Per-route schemas (Product,
             BreadcrumbList) ship from their own page files. */}
-        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
+        <JsonLd data={[organizationJsonLd(), websiteJsonLd(), localBusinessJsonLd()]} />
 
         <Providers>
           <CurrencyProvider>

@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import InfoPage from '@/components/InfoPage'
 
-export const metadata: Metadata = { title: 'Share Your Gear Pics', alternates: { canonical: '/share-your-gear-pics/' } }
+export const metadata: Metadata = {
+  title: 'Submit Gear Photos & Earn Store Credit',
+  description: 'Submit clear photos of NapsGear products to our community gallery and earn store credit. Share your gym gear, packaging, and product setups.',
+  keywords: ['submit photos', 'user photos', 'community gallery', 'earn credit', 'photo submission', 'gear photos'],
+  alternates: { canonical: '/share-your-gear-pics/' },
+}
 
 export default function ShareGearPicsPage() {
   return <InfoPage title="Share Your Gear Pics" intro="Submit clear customer photos for possible publication in the community gallery." sections={[

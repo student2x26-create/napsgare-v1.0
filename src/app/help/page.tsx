@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import { SUPPORT_EMAIL, buildWhatsAppHref } from '@/lib/storefrontConfig'
 
 export const metadata: Metadata = {
-  title: 'Help',
-  description: 'NapsGear customer support and ticket portal.',
+  title: 'Help & Support Portal | NapsHelp Ticket System',
+  description: 'Access NapsGear customer support, submit tickets, manage your account, and browse the knowledgebase at NapsHelp. 24/7 customer service.',
+  keywords: ['help', 'support', 'ticket', 'knowledgebase', 'customer service', 'account help', 'order help', 'support portal'],
   alternates: { canonical: '/help/' },
 }
 

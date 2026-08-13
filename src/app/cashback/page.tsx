@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import InfoPage from '@/components/InfoPage'
 
-export const metadata: Metadata = { title: 'Cashback Program', alternates: { canonical: '/cashback/' } }
+export const metadata: Metadata = {
+  title: 'Cashback Program | Earn Promotional Credit at NapsGear',
+  description: 'Earn promotional cashback on eligible products at NapsGear. Redeem cashback as store credit toward future purchases. Check product details for qualifying offers.',
+  keywords: ['cashback', 'store credit', 'promotional offers', 'discounts', 'rewards', 'earn credit'],
+  alternates: { canonical: '/cashback/' },
+}
 
 export default function CashbackPage() {
   return <InfoPage title="Cashback Program" intro="Selected products and suppliers may include promotional cashback issued as store credit." sections={[

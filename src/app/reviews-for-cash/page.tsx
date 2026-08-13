@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import InfoPage from '@/components/InfoPage'
 
-export const metadata: Metadata = { title: 'Reviews for Cash', alternates: { canonical: '/reviews-for-cash/' } }
+export const metadata: Metadata = {
+  title: 'Write Product Reviews & Earn Store Credit',
+  description: 'Share honest product reviews at NapsGear and earn store credit. Help other customers make informed decisions. Detailed reviews get published and rewarded.',
+  keywords: ['product reviews', 'customer reviews', 'earn credit', 'write reviews', 'review rewards', 'store credit'],
+  alternates: { canonical: '/reviews-for-cash/' },
+}
 
 export default function ReviewsForCashPage() {
   return <InfoPage title="Reviews for Cash" intro="Share a useful, product-specific review and receive store credit when it meets the program requirements." sections={[

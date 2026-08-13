@@ -2942,3 +2942,287 @@ body.has-sticky-header {
 .ngc-quickview__add { width: 100%; }
 .ngc-quickview__details { text-align: center; font-weight: 600; text-decoration: none; }
 
+/* ============================================================================
+   Homepage Hero Intro Section — Rich content for SEO & engagement
+   ============================================================================ */
+.ngc-hero-intro {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  margin: 40px 0;
+}
+.ngc-hero-intro h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+.ngc-hero-intro .lead {
+  font-size: 20px;
+  color: #444;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.ngc-hero-intro p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 800px;
+}
+.ngc-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 40px 0;
+}
+.ngc-feature-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+  transition: box-shadow 0.3s ease;
+}
+.ngc-feature-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+.ngc-feature-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+.ngc-feature-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+.ngc-btn--primary {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+}
+.ngc-btn--primary:hover {
+  background: #0056b3;
+}
+
+/* Trust & Benefits Section */
+.ngc-trust-section {
+  padding: 60px 0;
+  background: #fafafa;
+  margin: 40px 0;
+}
+.ngc-trust-section h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #1a1a1a;
+}
+.ngc-benefits-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.ngc-benefits-list li {
+  background: #fff;
+  padding: 20px;
+  border-left: 4px solid #007bff;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+}
+.ngc-benefits-list strong {
+  color: #1a1a1a;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.ngc-benefits-list a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 123, 255, 0.3);
+  transition: all 0.2s ease;
+}
+.ngc-benefits-list a:hover {
+  color: #0056b3;
+  border-bottom-color: #0056b3;
+}
+
+/* CTA Section for Category Exploration */
+.ngc-cta-section {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: #fff;
+  margin: 40px 0;
+  text-align: center;
+}
+.ngc-cta-section h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #fff;
+}
+.ngc-category-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.ngc-category-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, .2);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, .4);
+  transition: all 0.3s ease;
+}
+.ngc-category-link:hover {
+  background: rgba(255, 255, 255, .3);
+  border-color: rgba(255, 255, 255, .6);
+}
+.ngc-category-link--primary {
+  background: #fff;
+  color: #007bff;
+  border-color: #fff;
+  font-weight: 600;
+}
+.ngc-category-link--primary:hover {
+  background: #f0f0f0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ngc-hero-intro h1 { font-size: 32px; }
+  .ngc-hero-intro .lead { font-size: 18px; }
+  .ngc-features-grid { grid-template-columns: 1fr; }
+  .ngc-trust-section h2 { font-size: 28px; }
+  .ngc-cta-section h2 { font-size: 28px; }
+  .ngc-benefits-list { grid-template-columns: 1fr; }
+}
+
+/* ============================================================================
+   Performance: Lazy Loading & Image Optimization
+   ============================================================================ */
+/* Native lazy loading for all images — improves performance and Core Web Vitals.
+   The loading="lazy" attribute tells the browser to defer image loading until
+   the image is near the viewport. This is progressive enhancement: works in
+   modern browsers, gracefully degrades in older ones. */
+img {
+  /* Smooth fade-in for lazy-loaded images */
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* For images that are still loading (during initial page load or before IntersectionObserver),
+   we can use a subtle background to indicate loading state. */
+img[loading="lazy"]:not([src*="data:"]) {
+  /* Placeholder background while loading — subtle gray */
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Loading animation for images — shimmer effect for better UX */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Product images with specific optimizations */
+.ngc-product-image {
+  /* Ensure product images have proper aspect ratio during load */
+  object-fit: contain;
+  background: #f9f9f9;
+}
+
+/* Gallery and thumbnail images */
+.ngc-gallery__item img,
+.ngc-quickview__media img,
+img.img-fluid {
+  /* Maintain aspect ratio and prevent layout shift during lazy load */
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Prevent Cumulative Layout Shift (CLS) — reserve space for images
+   by specifying width and height attributes on img tags in HTML,
+   or use aspect-ratio CSS on containers. */
+.ngc-product-card img,
+.ngc-gallery__item img {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* Hero carousel images — ensure good performance and appearance */
+.hero-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================================
+   Internal Linking & Navigation Enhancement
+   ============================================================================ */
+/* Related links section on info pages for better SEO and navigation */
+.ngc-info-page__related-links {
+  margin-top: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e8eef7 100%);
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+.ngc-info-page__related-links h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+.ngc-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.ngc-link-list li {
+  margin: 0;
+}
+.ngc-link-list a {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #fff;
+  color: #007bff;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.ngc-link-list a:hover {
+  background: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+

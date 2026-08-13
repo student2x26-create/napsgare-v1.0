@@ -5,8 +5,9 @@ import type { ShippingDoc } from '@/data/types'
 const doc: ShippingDoc = shippingJson as ShippingDoc
 
 export const metadata: Metadata = {
-  title: 'Shipping & Returns',
-  description: 'Shipping policy, delivery times, and return process at NapsGear.',
+  title: 'Shipping & Returns Policy | Fast Delivery at NapsGear',
+  description: 'Learn about NapsGear shipping options, estimated delivery times, return policy, refund process, and international fulfillment options.',
+  keywords: ['shipping', 'delivery', 'returns', 'refund policy', 'shipping policy', 'international shipping', 'domestic shipping', 'return process'],
   alternates: { canonical: '/shipping-information/' },
 }
 

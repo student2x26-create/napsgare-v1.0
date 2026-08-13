@@ -3,8 +3,9 @@ import VideoCard from '@/components/VideoCard'
 import { videos } from '@/data'
 
 export const metadata: Metadata = {
-  title: 'Ask an IFBB Pro',
-  description: 'Q&A videos from IFBB pros — training, nutrition, recovery.',
+  title: 'Ask an IFBB Pro | Q&A Videos with Professional Athletes',
+  description: 'Watch Q&A videos from IFBB pro athletes covering training techniques, nutrition strategies, recovery methods, and fitness coaching advice.',
+  keywords: ['ifbb pro', 'training advice', 'fitness Q&A', 'nutrition', 'recovery', 'coaching videos', 'professional athletes'],
   alternates: { canonical: '/ask-an-ifbb-pro/' },
 }
 

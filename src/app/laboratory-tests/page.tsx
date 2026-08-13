@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import InfoPage from '@/components/InfoPage'
 
-export const metadata: Metadata = { title: 'Laboratory Tests', alternates: { canonical: '/laboratory-tests/' } }
+export const metadata: Metadata = {
+  title: 'Laboratory Tests & Product Verification | NapsGear Quality Assurance',
+  description: 'Review independent laboratory reports and product testing documentation. Learn how NapsGear verifies product quality, purity, and authenticity through third-party testing.',
+  keywords: ['lab reports', 'testing', 'product verification', 'quality assurance', 'independent testing', 'purity', 'third-party testing'],
+  alternates: { canonical: '/laboratory-tests/' },
+}
 
 export default function LaboratoryTestsPage() {
   return <InfoPage title="Laboratory Tests" intro="This section explains how supplier documentation and independent reports are organized and reviewed." sections={[

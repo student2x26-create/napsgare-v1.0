@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import InfoPage from '@/components/InfoPage'
 
-export const metadata: Metadata = { title: 'Earn Store Credit', alternates: { canonical: '/store-credit/' } }
+export const metadata: Metadata = {
+  title: 'Earn Store Credit | Loyalty & Rewards Program',
+  description: 'Earn store credit at NapsGear by answering community questions, referring friends, submitting product reviews, and sharing gear photos. Redeem toward future purchases.',
+  keywords: ['store credit', 'earn credit', 'loyalty', 'rewards program', 'community participation', 'referral program'],
+  alternates: { canonical: '/store-credit/' },
+}
 
 export default function StoreCreditPage() {
   return <InfoPage title="Earn Store Credit" intro="Use community and referral programs to build credit toward future orders." sections={[

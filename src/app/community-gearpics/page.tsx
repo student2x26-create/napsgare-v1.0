@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import { gearpics } from '@/data'
 
-export const metadata: Metadata = { title: 'Community Gear Pics', alternates: { canonical: '/community-gearpics/' } }
+export const metadata: Metadata = {
+  title: 'Community Gear Pics | Customer Photos & Gallery',
+  description: 'Browse customer photos of NapsGear products, gym gear, and packaging. See real-world product presentation and gear reviews from community members.',
+  keywords: ['gear pics', 'customer photos', 'gym gear', 'product photos', 'community gallery', 'user photos', 'product packaging'],
+  alternates: { canonical: '/community-gearpics/' },
+}
 
 export default function CommunityGearpicsPage() {
   return (

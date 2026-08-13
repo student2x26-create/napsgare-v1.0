@@ -5,8 +5,9 @@ import type { DiaryEntry } from '@/data/types'
 const diaries: DiaryEntry[] = diariesJson as DiaryEntry[]
 
 export const metadata: Metadata = {
-  title: 'AAS Diaries',
-  description: 'Real-cycle diaries shared by the NapsGear community.',
+  title: 'Cycle Diaries | Real Bodybuilding Progress Logs',
+  description: 'Read real cycle diaries and progress logs from NapsGear community members. Track training, nutrition, and results from actual users.',
+  keywords: ['cycle diary', 'progress log', 'user diaries', 'bodybuilding journal', 'training log', 'community content'],
   alternates: { canonical: '/aas-diaries/' },
 }
 

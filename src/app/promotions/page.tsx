@@ -5,8 +5,9 @@ import type { Promotion } from '@/data/types'
 const promos: Promotion[] = promosJson as Promotion[]
 
 export const metadata: Metadata = {
-  title: 'Promotions',
-  description: 'Current deals, discounts, and pack bundles at NapsGear.',
+  title: 'Promotions & Deals | Current Offers at NapsGear',
+  description: 'Browse current NapsGear promotions, limited-time deals, exclusive bundles, and supplier offers. Updated regularly with seasonal sales.',
+  keywords: ['promotions', 'deals', 'discounts', 'sale', 'bundles', 'offers', 'limited time', 'seasonal offers'],
   alternates: { canonical: '/promotions/' },
 }
 

@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import InfoPage from '@/components/InfoPage'
 
-export const metadata: Metadata = { title: 'Refer NapsGear for Cash', alternates: { canonical: '/refer-a-friend/' } }
+export const metadata: Metadata = {
+  title: 'Refer a Friend & Earn Store Credit',
+  description: 'Share your NapsGear referral link with friends and earn account credit from qualifying new customer orders. Win-win for you and your friends.',
+  keywords: ['referral program', 'refer friend', 'earn credit', 'store credit', 'referral bonus', 'invite friends'],
+  alternates: { canonical: '/refer-a-friend/' },
+}
 
 export default function ReferFriendPage() {
   return <InfoPage title="Refer NapsGear for Cash" intro="Registered customers can share a personal referral link and earn account credit from qualifying referrals." sections={[

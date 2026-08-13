@@ -3,8 +3,9 @@ import { qaPosts } from '@/data'
 import QaForum from '@/components/QaForum'
 
 export const metadata: Metadata = {
-  title: 'Q & A',
-  description: 'Community questions and answers about training, cycles, and ordering.',
+  title: 'Community Q&A | Ask Training & Ordering Questions',
+  description: 'Join the NapsGear Q&A forum. Ask and answer community questions about training, cycles, ordering, and products. Earn store credit for helpful responses.',
+  keywords: ['Q&A', 'questions', 'answers', 'community', 'training questions', 'ordering questions', 'earn credit', 'forum'],
   alternates: { canonical: '/qa/' },
 }
 

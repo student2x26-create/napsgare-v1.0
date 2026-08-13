@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import InfoPage from '@/components/InfoPage'
 
 export const metadata: Metadata = {
-  title: 'Why NapsGear',
-  description: 'Why customers choose NapsGear — service, selection, shipping.',
+  title: 'Why Choose NapsGear | Trusted Pharmaceutical Marketplace',
+  description: 'Why customers choose NapsGear: 20 years experience, multi-supplier catalog, dedicated support, multiple shipping locations, authentic products, and community resources.',
+  keywords: ['why choose us', 'about NapsGear', 'trusted supplier', 'reliability', 'customer service', 'selection', 'authentic'],
   alternates: { canonical: '/why-naps/' },
 }
 

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { categories, products } from '@/data'
 import ProductTable from '@/components/ProductTable'
 import JsonLd from '@/components/JsonLd'
-import { breadcrumbJsonLd } from '@/lib/jsonld'
+import { breadcrumbJsonLd, collectionAggregateRatingJsonLd } from '@/lib/jsonld'
 import { SITE_NAME, absoluteUrl } from '@/lib/site'
 
 export const dynamicParams = false
@@ -55,9 +55,19 @@ export default async function CategoryPage({
     { name: category.name },
   ])
 
+  // Build collection-level aggregate rating schema
+  const aggregateRating = collectionAggregateRatingJsonLd(
+    list,
+    category.name,
+    `/categories/${category.slug}/`,
+  )
+
+  // Combine both schemas (breadcrumb + aggregate rating if available)
+  const schemas = aggregateRating ? [crumbs, aggregateRating] : crumbs
+
   return (
     <main className="main">
-      <JsonLd data={crumbs} />
+      <JsonLd data={schemas} />
       <div className="container">
         <ProductTable
           title={category.name}

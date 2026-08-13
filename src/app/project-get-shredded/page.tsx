@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import InfoPage from '@/components/InfoPage'
 
-export const metadata: Metadata = { title: 'Project Get Shredded', alternates: { canonical: '/project-get-shredded/' } }
+export const metadata: Metadata = {
+  title: 'Project Get Shredded | Structured Fitness Program',
+  description: 'Join Project Get Shredded: a structured community fitness program covering training plans, nutrition strategies, recovery methods, and progress tracking for body composition goals.',
+  keywords: ['training program', 'nutrition plan', 'body composition', 'fitness coaching', 'progress tracking', 'recovery', 'fitness community'],
+  alternates: { canonical: '/project-get-shredded/' },
+}
 
 export default function ProjectGetShreddedPage() {
   return <InfoPage title="Project Get Shredded" intro="A structured community series covering training consistency, nutrition planning, recovery, and progress tracking." sections={[

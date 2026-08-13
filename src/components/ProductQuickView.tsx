@@ -30,7 +30,7 @@ function QuickViewGallery({ images, name }: { images: string[]; name: string }) 
       <div className="swiper-wrapper" suppressHydrationWarning>
         {images.map((src, i) => (
           <div className="swiper-slide" key={src}>
-            <img className="img-fluid ngc-product-image" src={src} alt={`${name} image ${i + 1}`} />
+            <img className="img-fluid ngc-product-image" src={src} alt={`${name} image ${i + 1}`} loading="lazy" />
           </div>
         ))}
       </div>
@@ -106,7 +106,7 @@ export default function ProductQuickView({
             {images.length > 1 ? (
               <QuickViewGallery images={images} name={product.name} />
             ) : images[0] ? (
-              <img className="img-fluid ngc-product-image" src={images[0]} alt={product.name} />
+              <img className="img-fluid ngc-product-image" src={images[0]} alt={product.name} loading="lazy" />
             ) : (
               <span className="product-image-photo bg-gray-100" aria-hidden="true" />
             )}

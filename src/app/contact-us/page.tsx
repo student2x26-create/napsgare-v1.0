@@ -6,8 +6,9 @@ import { SUPPORT_EMAIL, buildWhatsAppHref } from '@/lib/storefrontConfig'
 const c: ContactInfo = contactJson as ContactInfo
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with NapsGear support.',
+  title: 'Contact NapsGear Support | Help & Customer Service',
+  description: 'Contact NapsGear customer support via email, WhatsApp, or help portal for order assistance, shipping inquiries, payment help, and account support.',
+  keywords: ['contact', 'support', 'customer service', 'help', 'order support', 'payment help', 'shipping inquiry', 'customer service'],
   alternates: { canonical: '/contact-us/' },
 }
 
@@ -53,6 +54,17 @@ export default function ContactPage() {
           </section>
 
           {c.portalUrl && <a className="ngc-btn ngc-btn--dark" href={c.portalUrl} rel="noreferrer">Visit NapsHelp</a>}
+
+          {/* Related links for better internal linking and navigation */}
+          <section className="ngc-info-page__related-links">
+            <h3>Helpful resources</h3>
+            <ul className="ngc-link-list">
+              <li><a href="/faq/">Frequently Asked Questions</a></li>
+              <li><a href="/shipping-information/">Shipping & Returns Policy</a></li>
+              <li><a href="/help/">Help Portal & Knowledgebase</a></li>
+              <li><a href="/why-naps/">Why Choose NapsGear</a></li>
+            </ul>
+          </section>
         </article>
       </div>
     </main>

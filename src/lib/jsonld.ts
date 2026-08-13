@@ -126,3 +126,87 @@ export function productJsonLd(product: Product) {
   }
   return node
 }
+
+/** FAQPage JSON-LD enables Google's FAQ rich result format, showing Q&A directly
+ *  in search results. This dramatically improves CTR and visibility. */
+export interface FaqItem {
+  question: string
+  answer: string
+}
+
+export function faqPageJsonLd(items: FaqItem[]) {
+  return {
+    '@context': CONTEXT,
+    '@type': 'FAQPage',
+    mainEntity: items.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
+}
+
+/** LocalBusiness schema for storefront credibility and local search visibility.
+ *  Helps Google understand physical or e-commerce location. */
+export function localBusinessJsonLd() {
+  return {
+    '@context': CONTEXT,
+    '@type': 'OnlineStore',
+    name: SITE_NAME,
+    url: SITE_URL,
+    description: SITE_DESCRIPTION,
+    logo: absoluteUrl('/images/logo.png'),
+    sameAs: [
+      'https://www.instagram.com/napsgear/',
+      'https://www.youtube.com/@napsgear',
+    ],
+  }
+}
+
+/** Collection-level AggregateRating for category/brand pages.
+ *  Shows the average rating across all products in the collection,
+ *  which can appear in Google rich results for collection/list pages. */
+export function collectionAggregateRatingJsonLd(
+  products: Product[],
+  collectionName: string,
+  collectionUrl: string,
+) {
+  // Filter products that have reviews
+  const productsWithReviews = products.filter(p => p.reviews && p.reviews.length > 0)
+  
+  if (productsWithReviews.length === 0) {
+    return null
+  }
+
+  // Calculate aggregate rating across all products
+  const totalRating = productsWithReviews.reduce((sum, p) => {
+    if (!p.reviews || p.reviews.length === 0) return sum
+    const productRating = p.reviews.reduce((s, r) => s + r.rating, 0) / p.reviews.length
+    return sum + productRating
+  }, 0)
+  const ratingValue = (totalRating / productsWithReviews.length).toFixed(2)
+  
+  // Sum review counts
+  const totalReviewCount = productsWithReviews.reduce(
+    (sum, p) => sum + (p.reviews?.length ?? 0),
+    0,
+  )
+
+  return {
+    '@context': CONTEXT,
+    '@type': 'CollectionPage',
+    name: collectionName,
+    url: collectionUrl.startsWith('http') ? collectionUrl : absoluteUrl(collectionUrl),
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: parseFloat(ratingValue),
+      bestRating: 5,
+      worstRating: 1,
+      reviewCount: totalReviewCount,
+      ratingCount: productsWithReviews.length,
+    },
+  }
+}

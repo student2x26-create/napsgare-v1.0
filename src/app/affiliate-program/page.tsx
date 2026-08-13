@@ -5,8 +5,9 @@ import type { AffiliateDoc } from '@/data/types'
 const doc: AffiliateDoc = affiliateJson as AffiliateDoc
 
 export const metadata: Metadata = {
-  title: 'Affiliate Program',
-  description: 'Earn commission on every NapsGear order through your tracking link.',
+  title: 'Affiliate Program | Earn Commissions at NapsGear',
+  description: 'Join the NapsGear affiliate program and earn competitive commissions on every order placed through your unique tracking link. Passive income opportunity.',
+  keywords: ['affiliate program', 'earn commission', 'referral', 'affiliate marketing', 'partner program', 'passive income'],
   alternates: { canonical: '/affiliate-program/' },
 }
 

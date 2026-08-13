@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import InfoPage from '@/components/InfoPage'
 
-export const metadata: Metadata = { title: 'Supplier Super Deals', alternates: { canonical: '/supplier-super-deals/' } }
+export const metadata: Metadata = {
+  title: 'Supplier Super Deals | Limited-Time Offers & Bundles',
+  description: 'Explore exclusive supplier deals, limited-time discounts, and promotional bundles on premium products at NapsGear.',
+  keywords: ['supplier deals', 'limited offers', 'discount', 'bundles', 'promotions', 'special pricing', 'bundle deals'],
+  alternates: { canonical: '/supplier-super-deals/' },
+}
 
 export default function SupplierDealsPage() {
   return <InfoPage title="Supplier Super Deals" intro="Browse limited supplier offers, discounted packs, and promotional bundles." sections={[
