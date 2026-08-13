@@ -1786,6 +1786,7 @@ body.has-sticky-header {
   font-size: 32px;
   line-height: 64px;
   font-weight: 700;
+  scroll-margin-top: 72px;
 }
 .cart-main .ngc-confirm__title {
   font-size: 24px;
@@ -1881,6 +1882,16 @@ body.has-sticky-header {
   border-radius: 8px;
   background: #f8fafc;
   text-align: left;
+}
+.cart-main .ngc-payment-instructions__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 0 18px;
+}
+.cart-main .ngc-payment-instructions__actions .ngc-btn {
+  flex: 1 1 220px;
+  min-height: 46px;
 }
 .cart-main .ngc-payment-instructions h2 {
   margin: 0 0 14px;

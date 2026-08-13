@@ -26,6 +26,7 @@ export default function CheckoutPage() {
   const { data: session } = useAuthSession()
   const checkoutUi = useStore(checkoutUiStore)
   const captchaRef = useRef<HCaptchaHandle>(null)
+  const successCheckRef = useRef<HTMLDivElement | null>(null)
   const whatsappHref = buildWhatsAppHref()
 
   const orderMutation = useMutation({
@@ -89,7 +90,13 @@ export default function CheckoutPage() {
     if (checkoutUi.status !== 'success') return
     clearCart()
     if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      requestAnimationFrame(() => {
+        successCheckRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'nearest',
+        })
+      })
     }
   }, [checkoutUi.status, clearCart])
 
@@ -116,11 +123,11 @@ export default function CheckoutPage() {
       <main className="main cart-main">
         <div className="container">
         <div className="ngc-confirm" role="status" aria-live="polite">
-          <div className="ngc-confirm__check" aria-hidden="true">&#10003;</div>
+          <div ref={successCheckRef} className="ngc-confirm__check" aria-hidden="true">&#10003;</div>
           <h1 className="ngc-confirm__title">Order received — thank you!</h1>
           <p className="ngc-confirm__sub">
-            We received your order details. Complete the Bitcoin payment next
-            so support can match it to your order.
+            We received your order details. Use the wallet details below and
+            contact support with your order reference when you send the payment.
           </p>
           {snapshot && (
             <>
@@ -130,18 +137,9 @@ export default function CheckoutPage() {
               <p className="ngc-confirm__reference">
                 Order reference <strong>{snapshot.reference}</strong>
               </p>
-              <section className="ngc-payment-next" aria-labelledby="payment-next-title">
-                <div className="ngc-payment-next__eyebrow">Next step</div>
-                <h2 id="payment-next-title">Pay with Bitcoin</h2>
-                <p>
-                  Open the Bitcoin payment page, then include your order
-                  reference so support can match the payment to this order.
-                </p>
-                <div className="ngc-payment-next__summary" aria-label="Payment summary">
-                  <span>Total <strong>{snapshot.total}</strong></span>
-                  <span>Reference <strong>{snapshot.reference}</strong></span>
-                </div>
-                <div className="ngc-payment-next__actions">
+              <section className="ngc-payment-instructions" aria-labelledby="payment-instructions-title">
+                <h2 id="payment-instructions-title">Bitcoin payment</h2>
+                <div className="ngc-payment-instructions__actions">
                   {paymentHref && (
                     <a
                       className="ngc-btn ngc-btn--dark"
@@ -159,19 +157,10 @@ export default function CheckoutPage() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Send payment details on WhatsApp
+                      Chat with support
                     </a>
                   )}
                 </div>
-                {!paymentHref && (
-                  <p className="ngc-payment-next__hint">
-                    Payment link is not configured yet. Use the wallet details
-                    below and contact support with your order reference.
-                  </p>
-                )}
-              </section>
-              <section className="ngc-payment-instructions" aria-labelledby="payment-instructions-title">
-                <h2 id="payment-instructions-title">Bitcoin payment</h2>
                 <dl>
                   <div>
                     <dt>Total</dt>
@@ -201,8 +190,8 @@ export default function CheckoutPage() {
                   )}
                 </dl>
                 <p>
-                  Include your order reference when sending payment details or
-                  contacting support.
+                  Use the wallet details below and contact support with your
+                  order reference.
                 </p>
               </section>
             </>

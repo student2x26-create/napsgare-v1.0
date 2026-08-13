@@ -25,4 +25,17 @@ describe('storefrontConfig helpers', () => {
       supportWhatsApp: '+15551234567',
     })).toContain('BTC wallet: bc1-wallet')
   })
+
+  it('uses the cleaner support guidance for payment follow-up', () => {
+    const instructions = renderBitcoinInstructions({
+      reference: 'NG-20260623-ABC123',
+      total: '$238.00',
+      wallet: 'bc1-wallet',
+      supportEmail: 'support@example.com',
+      supportWhatsApp: '+15551234567',
+    })
+
+    expect(instructions).toContain('Use the wallet details below and contact support with your order reference.')
+    expect(instructions).not.toContain('Send Bitcoin payment and include the order reference when contacting support.')
+  })
 })

@@ -53,6 +53,6 @@ export function renderBitcoinInstructions({
     paymentUrl ? `Payment link: ${buildPaymentHref({ reference, total, baseUrl: paymentUrl })}` : '',
     supportEmail ? `Support email: ${supportEmail}` : '',
     supportWhatsApp ? `WhatsApp: ${supportWhatsApp}` : '',
-    'Send Bitcoin payment and include the order reference when contacting support.',
+    'Use the wallet details below and contact support with your order reference.',
   ].filter(Boolean).join('\n')
 }
