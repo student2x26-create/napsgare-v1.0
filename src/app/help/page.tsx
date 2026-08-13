@@ -51,7 +51,7 @@ export default function HelpPage() {
             <h2>Direct support</h2>
             {SUPPORT_EMAIL && (
               <p>
-                Email <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> for account, order, payment, or shipping questions.
+                <a href={`mailto:${SUPPORT_EMAIL}`} rel="noreferrer">Email support</a> for account, order, payment, or shipping questions.
               </p>
             )}
             {whatsappHref && (

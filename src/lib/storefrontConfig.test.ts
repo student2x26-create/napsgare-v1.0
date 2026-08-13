@@ -16,14 +16,18 @@ describe('storefrontConfig helpers', () => {
   })
 
   it('renders Bitcoin payment instructions with configured support channels', () => {
-    expect(renderBitcoinInstructions({
+    const instructions = renderBitcoinInstructions({
       reference: 'NG-20260623-ABC123',
       total: '$238.00',
       wallet: 'bc1-wallet',
       paymentUrl: 'https://pay.example/{reference}',
       supportEmail: 'support@example.com',
       supportWhatsApp: '+15551234567',
-    })).toContain('BTC wallet: bc1-wallet')
+    })
+
+    expect(instructions).toContain('BTC wallet: bc1-wallet')
+    expect(instructions).toContain('WhatsApp: +15551234567')
+    expect(instructions).not.toContain('support@example.com')
   })
 
   it('uses the cleaner support guidance for payment follow-up', () => {
@@ -37,5 +41,6 @@ describe('storefrontConfig helpers', () => {
 
     expect(instructions).toContain('Use the wallet details below and contact support with your order reference.')
     expect(instructions).not.toContain('Send Bitcoin payment and include the order reference when contacting support.')
+    expect(instructions).not.toContain('support@example.com')
   })
 })

@@ -37,7 +37,7 @@ export default function ContactPage() {
               <h2>Direct support</h2>
               {SUPPORT_EMAIL && (
                 <p>
-                  Email <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> for order, payment, and account questions.
+                  <a href={`mailto:${SUPPORT_EMAIL}`} rel="noreferrer">Email support</a> for order, payment, and account questions.
                 </p>
               )}
               {whatsappHref && (

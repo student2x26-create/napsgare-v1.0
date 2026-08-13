@@ -150,6 +150,16 @@ export default function CheckoutPage() {
                       Pay with Bitcoin now
                     </a>
                   )}
+                  {SUPPORT_EMAIL && (
+                    <a
+                      className="ngc-btn ngc-btn--outline"
+                      href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(`Order reference ${snapshot.reference}`)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Email support
+                    </a>
+                  )}
                   {whatsappHref && (
                     <a
                       className="ngc-btn ngc-btn--outline"
@@ -178,8 +188,8 @@ export default function CheckoutPage() {
                   )}
                   {SUPPORT_EMAIL && (
                     <div>
-                      <dt>Email</dt>
-                      <dd><a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></dd>
+                      <dt>Support</dt>
+                      <dd><a href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(`Order reference ${snapshot.reference}`)}`}>Email support</a></dd>
                     </div>
                   )}
                   {whatsappHref && (
