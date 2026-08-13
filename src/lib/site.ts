@@ -4,9 +4,9 @@
 
 /** Absolute origin without trailing slash. Set via NEXT_PUBLIC_SITE_URL in
  *  .env.local for local builds and via Vercel project env in production.
- *  Falls back to a placeholder so dev builds don't crash. */
+ *  Falls back to production domain napsgare.com so dev builds don't crash. */
 export const SITE_URL: string = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://napsgear-v1.vercel.app'
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://napsgare.com'
 ).replace(/\/+$/, '')
 
 export const SITE_NAME = 'NapsGear'

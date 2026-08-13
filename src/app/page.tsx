@@ -5,6 +5,7 @@ import QaSection from "@/components/QaSection";
 import GearpicsSection from "@/components/GearpicsSection";
 import JsonLd from "@/components/JsonLd";
 import { localBusinessJsonLd } from "@/lib/jsonld";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: 'NapsGear | Premium Pharmaceutical Marketplace & Health Supplements Store',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     title: 'NapsGear | Premium Pharmaceutical Marketplace',
     description: 'Discover quality health supplements and pharmaceutical products. Fast shipping, authentic guarantee, expert support.',
     type: 'website',
-    url: 'https://napsgear.com',
+    url: SITE_URL,
     siteName: 'NapsGear',
   },
 }
