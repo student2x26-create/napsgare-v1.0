@@ -69,9 +69,11 @@ describe('buildOrderPayload', () => {
   it('subject is the scannable triage format (name — N items — total)', () => {
     expect(p.subject).toBe('New NapsGear order — Jane Doe — 3 items — $238.00')
   })
-  it('from_name + replyto', () => {
+  it('from_name + replyto + dedicated customer contact fields for support', () => {
     expect(p.from_name).toBe('NapsGear Checkout')
     expect(p.replyto).toBe('jane@example.com')
+    expect(p.customer_email).toBe('jane@example.com')
+    expect(p.customer_phone).toBe('555 123 4567')
   })
   it('customer field is tight 2-line name/email block (phone hidden for privacy)', () => {
     expect(p.customer).toBe('Jane Doe\njane@example.com')
@@ -106,9 +108,7 @@ describe('buildOrderPayload', () => {
     // mega `message` field have all been removed to keep the inbox tight.
     for (const k of [
       'order_items', 'order_subtotal', 'order_shipping', 'order_loyalty_credit',
-      'order_notes', 'message',
-      // separate name/email/phone/address fields — collapsed into customer/shipping
-      'customer_name', 'customer_email', 'customer_phone', 'shipping_address',
+      'order_notes', 'message', 'shipping_address',
     ]) {
       expect(k in p).toBe(false)
     }

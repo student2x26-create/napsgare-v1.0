@@ -41,6 +41,10 @@ export interface OrderPayload {
   botcheck: string
   /** Multi-line: name / email / phone */
   customer: string
+  /** Explicit customer contact details for support inbox and reply routing */
+  customer_name: string
+  customer_email: string
+  customer_phone: string
   /** Multi-line: address block, blanks dropped */
   shipping: string
   /** One line per item: "N × Name · $line_total" */
@@ -98,6 +102,9 @@ export function buildOrderPayload(f: CheckoutForm, items: CartItem[], reference 
     replyto: validForm.email,
     botcheck: '',
     customer: renderCustomer(validForm),
+    customer_name: validForm.fullName,
+    customer_email: validForm.email,
+    customer_phone: validForm.phone,
     shipping: renderShipping(validForm),
     items: renderItems(items),
     totals: renderTotals(items),
