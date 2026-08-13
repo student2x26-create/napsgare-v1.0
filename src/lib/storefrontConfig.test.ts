@@ -15,6 +15,27 @@ describe('storefrontConfig helpers', () => {
     })).toBe('https://pay.example/checkout?ref=NG-20260623-ABC123&amount=%24238.00')
   })
 
+  it('ignores placeholder / stale config values so no fake payment link leaks into the email', () => {
+    expect(buildPaymentHref({
+      reference: 'NG-20260623-ABC123',
+      total: '$238.00',
+      baseUrl: 'https://example.com/pay-with-bitcoin',
+    })).toBe('')
+
+    const instructions = renderBitcoinInstructions({
+      reference: 'NG-20260623-ABC123',
+      total: '$238.00',
+      wallet: 'bc1-wallet',
+      paymentUrl: 'https://example.com/pay-with-bitcoin',
+      supportEmail: 'support@napsgear.io',
+      supportWhatsApp: '+10000000000',
+    })
+
+    expect(instructions).not.toContain('Payment link:')
+    expect(instructions).not.toContain('support@napsgear.io')
+    expect(instructions).not.toContain('+10000000000')
+  })
+
   it('renders Bitcoin payment instructions with configured support channels', () => {
     const instructions = renderBitcoinInstructions({
       reference: 'NG-20260623-ABC123',
