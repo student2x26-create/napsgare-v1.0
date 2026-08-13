@@ -16,10 +16,9 @@ import { renderBitcoinInstructions } from './storefrontConfig'
 
 const fmt = (n: number) => `$${n.toFixed(2)}`
 
-/** "Flux\njane@example.com\n8002428478" — one tight block instead of three
- *  separate Customer name / Customer email / Customer phone fields. */
+/** "Flux\njane@example.com" — name and email only, no phone number for privacy. */
 export function renderCustomer(f: CheckoutForm): string {
-  return [f.fullName, f.email, f.phone].filter(s => s && s.trim()).join('\n')
+  return [f.fullName, f.email].filter(s => s && s.trim()).join('\n')
 }
 
 /** Multi-line address; blanks dropped. */

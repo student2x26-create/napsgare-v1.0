@@ -73,8 +73,8 @@ describe('buildOrderPayload', () => {
     expect(p.from_name).toBe('NapsGear Checkout')
     expect(p.replyto).toBe('jane@example.com')
   })
-  it('customer field is tight 3-line name/email/phone block', () => {
-    expect(p.customer).toBe('Jane Doe\njane@example.com\n555 123 4567')
+  it('customer field is tight 2-line name/email block (phone hidden for privacy)', () => {
+    expect(p.customer).toBe('Jane Doe\njane@example.com')
   })
   it('shipping field joins lines with \\n and skips blanks', () => {
     expect(p.shipping).toBe('12 King St\nAustin, TX 78701\nUnited States')

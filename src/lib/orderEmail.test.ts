@@ -24,8 +24,8 @@ const ITEMS: CartItem[] = [
 ]
 
 describe('renderCustomer', () => {
-  it('packs name, email, phone onto separate lines', () => {
-    expect(renderCustomer(FORM)).toBe('Jane Doe\njane@example.com\n555 123 4567')
+  it('packs name and email onto separate lines (phone hidden for privacy)', () => {
+    expect(renderCustomer(FORM)).toBe('Jane Doe\njane@example.com')
   })
   it('drops blank fields rather than emitting empty lines', () => {
     const out = renderCustomer({ ...FORM, phone: '' })
