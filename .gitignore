@@ -1,0 +1,27 @@
+# Next.js
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Env
+.env
+.env.local
+.env*.local
+
+# Local reference material (saved browser dumps, 8.6MB+ — not shipped)
+saved pages/
+
+# Repomix bundled-codebase exports (regenerated locally, not for version control)
+repomix-output.*
+
+# Claude / AI tooling
+.claude/
+.cursor/
+.windsurf/
+.copilot/
+.aider*
+.gstack/
+.superpowers/
+docs/superpowers/

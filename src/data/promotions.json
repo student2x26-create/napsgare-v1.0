@@ -1,0 +1,83 @@
+[
+  {
+    "id": "affiliate-partner-program",
+    "title": "Affiliate Partner Program",
+    "body": "Earn Store Credit",
+    "cta": {
+      "label": "Affiliate Partner Program",
+      "href": "/"
+    }
+  },
+  {
+    "id": "reviews-for-cash",
+    "title": "Reviews for Cash",
+    "body": "Earn Store Credit",
+    "cta": {
+      "label": "Reviews for Cash",
+      "href": "/"
+    }
+  },
+  {
+    "id": "share-your-gear-pics",
+    "title": "Share Your Gear Pics",
+    "body": "Earn Store Credit",
+    "cta": {
+      "label": "Share Your Gear Pics",
+      "href": "/"
+    }
+  },
+  {
+    "id": "napsgear-aas-diaries",
+    "title": "NapsGear AAS Diaries",
+    "body": "Earn Store Credit",
+    "cta": {
+      "label": "NapsGear AAS Diaries",
+      "href": "/"
+    }
+  },
+  {
+    "id": "refer-napsgear-for-cash",
+    "title": "Refer NapsGear for Cash",
+    "body": "Earn Store Credit",
+    "cta": {
+      "label": "Refer NapsGear for Cash",
+      "href": "/"
+    }
+  },
+  {
+    "id": "flat-20-cashback",
+    "title": "Flat 20% Cashback",
+    "body": "Earn Store Credit",
+    "cta": {
+      "label": "Flat 20% Cashback",
+      "href": "/"
+    }
+  },
+  {
+    "id": "supplier-super-deals",
+    "title": "Supplier Super Deals",
+    "body": "Products on Sale",
+    "cta": {
+      "label": "Supplier Super Deals",
+      "href": "/"
+    }
+  },
+  {
+    "id": "product-of-the-week",
+    "title": "Product of the Week",
+    "body": "Products on Sale",
+    "cta": {
+      "label": "Product of the Week",
+      "href": "/"
+    }
+  },
+  {
+    "id": "ask-me-anything",
+    "title": "Ask Me Anything",
+    "body": "",
+    "cta": {
+      "label": "View",
+      "href": "/"
+    }
+  }
+]

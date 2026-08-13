@@ -1,0 +1,34 @@
+{
+  "sections": [
+    {
+      "heading": "Shipping overview",
+      "paras": [
+        "After a decade of fulfilling several thousands of orders, multiple shipping methods have been used. We have found methods that are highly successful and unsuccessful. The First Class shipping method has the highest success rate of delivery and customer satisfaction."
+      ]
+    },
+    {
+      "heading": "First Class Shipping",
+      "paras": [
+        "First Class Shipping fees cover the cost of package handling and the courier service used. Certain products (e.g., HGH) may require special shipping methods and an additional $50 shipping fee will be applied in checkout when applicable."
+      ]
+    },
+    {
+      "heading": "Domestic Orders",
+      "paras": [
+        "The products in this category are shipped domestically and, therefore, slightly more expensive. The cost is associated with additional security precautions and risk prevention. Once tracking is provided, it may remain inactive for a few days. Do not be alarmed! During this time, risk prevention is logistically planned to ensure delivery is made. Once the tracking becomes active, delivery should occur within 3-4 business day, with an expected 1-2 week turnaround time."
+      ]
+    },
+    {
+      "heading": "International Orders",
+      "paras": [
+        "Delivery of international packages will occur within 3-4 weeks. There are two sets of customs for internationally shipped orders: the origin country (from the shipper) and the destination country (to you). The customs processing time is not linear, rarely consistent, nor predictable. For this reason, we require 30 full days of transit time before we rule out delivery. If no delivery occurs by then, we can review your case and discuss potential options to resolve the matter."
+      ]
+    },
+    {
+      "heading": "Customs Clearance",
+      "paras": [
+        "Some countries have very strict customs and they are considered a higher-risk for non-delivery or customs detention. If seized, we cannot offer a reshipment or store credit to these higher-risk countries. Some higher-risk countries are, but not limited to, Australia, Brazil, and Canada. If you are unsure of your countries risk status, please contact us for review."
+      ]
+    }
+  ]
+}
