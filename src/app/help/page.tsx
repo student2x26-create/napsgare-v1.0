@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { SUPPORT_EMAIL, buildWhatsAppHref } from '@/lib/storefrontConfig'
+import { seoHelpTopics } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Help & Support Portal | NapsHelp Ticket System',
@@ -21,6 +22,10 @@ export default function HelpPage() {
 
         <h2 className="section-title">Welcome to NapsGear Support</h2>
         <p>
+          Need help with shipping, payment, account access, or product questions? NapsGear support can help with order issues,
+          product authenticity questions, and general guidance on supplements and performance products.
+        </p>
+        <p>
           Please login or register at{' '}
           <a href="https://www.napshelp.com/" target="_blank" rel="noreferrer">
             napshelp.com
@@ -30,6 +35,15 @@ export default function HelpPage() {
           resolved tickets. If you need assistance accessing your tickets, please
           notify our Live Chat staff. They will gladly assist you.
         </p>
+
+        <section className="ngc-info-page__section">
+          <h2>Common support questions</h2>
+          <ul>
+            {seoHelpTopics.map((topic) => (
+              <li key={topic.href}><a href={topic.href}>{topic.question}</a></li>
+            ))}
+          </ul>
+        </section>
 
         <ul>
           <li>
@@ -68,6 +82,10 @@ export default function HelpPage() {
           properly correspond with our support department, please login at
           napshelp.com. Then click the &quot;view tickets&quot; tab. If you do not
           see the tab, it means your login was unsuccessful. Please try again.
+        </p>
+        <p>
+          For fast answers to common questions, check our <a href="/faq/">FAQ</a>, <a href="/shipping-information/">shipping information</a>,
+          and <a href="/contact-us/">contact page</a> before opening a ticket.
         </p>
         <p>
           Some email providers may block our emails or send them to your junk

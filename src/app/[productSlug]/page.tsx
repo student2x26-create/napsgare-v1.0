@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { products, productsBySlug } from '@/data'
+import { products, productsBySlug, brands, categories } from '@/data'
 import ProductDetail from '@/components/ProductDetail'
 import JsonLd from '@/components/JsonLd'
 import { productJsonLd, breadcrumbJsonLd } from '@/lib/jsonld'
 import { SITE_NAME, absoluteUrl } from '@/lib/site'
+import { buildProductRelatedLinks } from '@/lib/seo'
 
 export const dynamicParams = false
 
@@ -22,13 +23,13 @@ export async function generateMetadata(
   if (!product) return { title: 'Product not found' }
 
   const description = product.description
-    ? product.description.slice(0, 160)
+    ? `${product.name}${product.brand ? ` by ${product.brand}` : ''} — ${product.description.slice(0, 160).replace(/\s+/g, ' ').trim()}`
     : `${product.name}${product.brand ? ` by ${product.brand}` : ''} — available at ${SITE_NAME}.`
 
   const ogImage = product.images?.[0]
 
   return {
-    title: product.name,
+    title: `${product.name}${product.brand ? ` | ${product.brand}` : ''} | ${SITE_NAME}`,
     description,
     alternates: { canonical: `/${product.slug}/` },
     openGraph: {
@@ -62,6 +63,8 @@ export default async function ProductPage({
     { name: product.name },
   ]
 
+  const related = buildProductRelatedLinks(product, categories, brands)
+
   return (
     <main className="main">
       <JsonLd data={[productJsonLd(product), breadcrumbJsonLd(crumbs)]} />
@@ -78,6 +81,20 @@ export default async function ProductPage({
           </ol>
         </nav>
         <ProductDetail product={product} />
+
+        {(related.brand || related.categories.length > 0) && (
+          <section className="mt-4 mb-5">
+            <h2>Related shopping links</h2>
+            <p className="mb-2">
+              {related.brand && (
+                <><a href={related.brand.href}>{related.brand.label}</a>{' '}</>
+              )}
+              {related.categories.map((item) => (
+                <span key={item.href}><a href={item.href}>{item.label}</a>{' '}</span>
+              ))}
+            </p>
+          </section>
+        )}
       </div>
     </main>
   )

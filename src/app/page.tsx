@@ -6,6 +6,8 @@ import GearpicsSection from "@/components/GearpicsSection";
 import JsonLd from "@/components/JsonLd";
 import { localBusinessJsonLd } from "@/lib/jsonld";
 import { SITE_URL } from "@/lib/site";
+import { categories } from '@/data'
+import { buildHomeCategoryLinks } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'NapsGear | Premium Pharmaceutical Marketplace & Health Supplements Store',
@@ -32,6 +34,8 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
+  const featuredCategories = buildHomeCategoryLinks(categories.slice(0, 6))
+
   return (
     <>
       <JsonLd data={localBusinessJsonLd()} />
@@ -109,12 +113,21 @@ export default function HomePage() {
         <section className="ngc-cta-section">
           <div className="container">
             <h2>Explore Popular Categories</h2>
+            <p className="mb-3">
+              Shop the most searched steroid and supplement categories for cutting, bulking, performance, and recovery.
+            </p>
             <div className="ngc-category-links">
-              <a href="/catalog/?category=fat-burners" className="ngc-category-link">Fat Burners</a>
-              <a href="/catalog/?category=protein" className="ngc-category-link">Protein Supplements</a>
-              <a href="/catalog/?category=pre-workout" className="ngc-category-link">Pre-Workout</a>
-              <a href="/catalog/?category=vitamins" className="ngc-category-link">Vitamins & Minerals</a>
-              <a href="/categories/" className="ngc-category-link ngc-category-link--primary">View All Categories</a>
+              {featuredCategories.map((category) => (
+                <a
+                  key={category.href}
+                  href={category.href}
+                  className="ngc-category-link"
+                  title={category.description}
+                >
+                  {category.label}
+                </a>
+              ))}
+              <a href="/catalog/" className="ngc-category-link ngc-category-link--primary">View All Categories</a>
             </div>
           </div>
         </section>

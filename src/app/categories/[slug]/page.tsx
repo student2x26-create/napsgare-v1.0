@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { categories, products } from '@/data'
+import { brands, categories, products } from '@/data'
 import ProductTable from '@/components/ProductTable'
 import JsonLd from '@/components/JsonLd'
 import { breadcrumbJsonLd, collectionAggregateRatingJsonLd } from '@/lib/jsonld'
 import { SITE_NAME, absoluteUrl } from '@/lib/site'
+import { buildCategoryDescription, buildProductRelatedLinks } from '@/lib/seo'
 
 export const dynamicParams = false
 
@@ -18,9 +19,9 @@ export async function generateMetadata(
   const { slug } = await params
   const category = categories.find((c) => c.slug === slug)
   if (!category) return { title: 'Category not found' }
-  const description = `Browse ${category.name} at ${SITE_NAME}.`
+  const description = buildCategoryDescription(category.name)
   return {
-    title: category.name,
+    title: `${category.name} for Sale | ${SITE_NAME}`,
     description,
     alternates: { canonical: `/categories/${category.slug}/` },
     openGraph: {
@@ -49,6 +50,13 @@ export default async function CategoryPage({
     list = []
   }
 
+  const categoryProducts = list.slice(0, 3)
+  const related = buildProductRelatedLinks(
+    categoryProducts[0] ?? { slug: category.slug, name: category.name, description: '', ingredient: category.name, images: [] },
+    categories,
+    brands,
+  )
+
   const crumbs = breadcrumbJsonLd([
     { name: 'Home', href: '/' },
     { name: 'Categories', href: '/catalog/' },
@@ -68,7 +76,29 @@ export default async function CategoryPage({
   return (
     <main className="main">
       <JsonLd data={schemas} />
-      <div className="container">
+      <div className="container py-4">
+        <header className="mb-4">
+          <h1>{category.name}</h1>
+          <p className="mb-0">
+            {buildCategoryDescription(category.name)}
+          </p>
+        </header>
+
+        {(related.brand || related.categories.length > 0) && (
+          <div className="mb-4">
+            <strong>Related:</strong>{' '}
+            {related.brand && (
+              <><a href={related.brand.href}>{related.brand.label}</a>{' '}</>
+            )}
+            {related.categories.map((item, index) => (
+              <span key={item.href}>
+                {index > 0 || related.brand ? '• ' : ''}
+                <a href={item.href}>{item.label}</a>{' '}
+              </span>
+            ))}
+          </div>
+        )}
+
         <ProductTable
           title={category.name}
           products={list}
