@@ -2838,6 +2838,11 @@ body.has-sticky-header {
   text-decoration: none;
   box-shadow: 0 12px 24px rgba(15, 23, 42, .24);
 }
+.ngc-whatsapp-chat__icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
 .ngc-whatsapp-chat:hover {
   color: #fff;
   background: #178947;
